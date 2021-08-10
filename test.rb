@@ -15,4 +15,6 @@ server = WEBrick::HTTPServer.new({
 # Webサーバを起動した状態で、（DocumentRootの値）/testというURLを送信すると、同じディレクトリ階層にあるtest.html.erbファイルを表示する
 server.mount('/test', WEBrick::HTTPServlet::ERBHandler, 'test.html.erb')
 server.mount('/indicate.cgi', WEBrick::HTTPServlet::CGIHandler, 'indicate.rb')
+server.mount('/goya.cgi', WEBrick::HTTPServlet::CGIHandler, 'goya.rb')
+server.mount('/', WEBrick::HTTPServlet::ERBHandler, 'kadai-slash.html.erb')#/ というURL(DocumentRootの値）で開く任意のHTMLページを一枚”新規”で作成すること。（Not Foundを出さないようにすること
 server.start
